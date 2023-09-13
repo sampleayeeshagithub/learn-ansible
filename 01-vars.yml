@@ -1,0 +1,6 @@
+- name: demo on printing
+  hosts: local host
+  tasks:
+    - name: print hello world
+      ansible.builtin.debug:
+        msg: hello world
