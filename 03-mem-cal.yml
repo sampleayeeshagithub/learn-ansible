@@ -6,6 +6,6 @@
       register: free
     - name: print free variable
       ansible.builtin.debug:
-        msg: "{{free}}"
+        msg: "{{free.stdout}}"
 
 
