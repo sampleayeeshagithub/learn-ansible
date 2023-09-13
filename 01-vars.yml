@@ -4,3 +4,12 @@
     - name: print hello world
       ansible.builtin.debug:
         msg: hello world
+
+- name: demo on vars
+  hosts: localhost
+  vars:
+    URL: example.com
+  tasks:
+    - name: print a variable
+      ansible.builtin.debug:
+        msg: "{{ URL }}"
