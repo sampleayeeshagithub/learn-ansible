@@ -10,7 +10,7 @@
         FREE: "{{ free.stdout | split(' ') }}"
 
     - name: set facts
-      ansible.built.set_fact:
+      ansible.builtin.set_fact:
         total: "{{ FREE[1] }}"
         free: "{{ FREE[3] }}"
 
