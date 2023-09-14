@@ -15,6 +15,6 @@
 
     - name: print free variable
       ansible.builtin.debug:
-        msg: "{{ free|int / total|int }}"
+        msg: "{{ free|int / total|int * 100 }}"
 
 
