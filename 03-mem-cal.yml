@@ -11,13 +11,26 @@
 
     - name: set facts
       ansible.builtin.set_fact:
-        total: "{{ FREE[1] }}"
-        free: "{{ FREE[3] }}"
         used_mem: "{{ 100 - (FREE[3]|int / FREE[1]|int * 100) }}"
 
     - name: print free output
       ansible.builtin.debug:
         msg: "{{ used_mem }}"
+
+    - name: Memory Good
+      ansible.builtin.debug:
+        msg: Memory Good
+      when: used_mem |int < 50
+
+    - name: Memory Orange
+      ansible.builtin.debug:
+        msg: Memory Good
+      when: used_mem|int > 50 and used_mem|int < 70
+
+    - name: Memory Red
+      ansible.builtin.debug:
+        msg: Memory Red
+      when: used_mem|int > 70
 
 
 
