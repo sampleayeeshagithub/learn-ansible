@@ -34,9 +34,18 @@
 
     - name: Memory Good
       ansible.builtin.debug:
-        msg: '{{ ansible_memory_mb["real"]["used"] }}'
+        msg: Memory Good
       when: ansible_memory_mb["real"]["used"] / ansible_memory_mb["real"]["total"] * 100 < 50
 
+    - name: Memory Orange
+      ansible.builtin.debug:
+        msg: Memory Good
+      when: ansible_memory_mb["real"]["used"] / ansible_memory_mb["real"]["total"] * 100 > 50 and ansible_memory_mb["real"]["used"] / ansible_memory_mb["real"]["total"] * 100 < 70
+
+    - name: Memory Red
+      ansible.builtin.debug:
+        msg: Memory Red
+      when: ansible_memory_mb["real"]["used"] / ansible_memory_mb["real"]["total"] * 100 > 70
 
 
 
