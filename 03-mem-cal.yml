@@ -11,7 +11,7 @@
 
     - name: print free variable
       ansible.builtin.debug:
-        msg: "{{ FREE[1] }}"
+        msg: "{{ FREE[0] }}"
 
 
 
