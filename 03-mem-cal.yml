@@ -2,16 +2,13 @@
   hosts: localhost
   tasks:
     - name: Get Memory
-      ansible.builtin.shell: free | grep Mem
+      ansible.builtin.shell: free | grep Mem | xargs
       register: free
-
-    - name: set a fact
-      ansible.builtin.set_fact:
-        FREE: "{{ free.stdout | split(' ') }}"
 
     - name: print free variable
       ansible.builtin.debug:
-        msg: "{{ FREE[9] }}"
+        msg: "{{free.stdout | split(' ') }}"
+
 
 
 
